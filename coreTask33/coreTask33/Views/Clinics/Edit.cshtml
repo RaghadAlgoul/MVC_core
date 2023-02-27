@@ -1,0 +1,48 @@
+﻿@model coreTask33.Models.Clinic
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Clinic</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ClinicId" />
+            <div class="form-group">
+                <label class="control-label" for="ClinicName">Clinic Name</label>
+
+                <input asp-for="ClinicName" class="form-control" />
+                <span asp-validation-for="ClinicName" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label class="control-label" for="ClinicImg">Clinic Image</label>
+@*                <input asp-for="ClinicImg" class="form-control" />
+
+                *@<img src="~/images/@Model.ClinicImg" style="height:70px;width:70px" />
+                  <span asp-validation-for="ClinicImg" class="text-danger"></span>
+                  <input type="file" class="form-control" />
+            </div><br />
+            <div class="form-group">
+                <label class="control-label" for="ClinicDis">Clinic Descriptions</label>
+                <input asp-for="ClinicDis" class="form-control" />
+                <span asp-validation-for="ClinicDis" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" /><br />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index"class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

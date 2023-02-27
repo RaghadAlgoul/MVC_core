@@ -1,0 +1,153 @@
+﻿@model IEnumerable<coreTask3.Models.Clinic>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  text-align: center;
+/*        background-image:@Url.Content("c:\\coretask3\\coretask3\\newfolder\\mmmm.png");
+*/  color: white;
+  width:100%;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+
+</style>
+
+<div class="about-section container-fluid">
+    <img src="~/images/mmmm.png" style="height:300px" />
+</div>
+
+<h2 style="text-align:center;margin-top:40px">Our Department</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        
+ 
+
+        <div class="column" style="height:550px">
+            
+        <div class="card">
+                <img src="~/images/@item.ClinicImg" style="width:100%;height:250px" />
+            <div class="container">
+                <h2>@item.ClinicName</h2>
+                    <p>@item.ClinicDis</p>
+                    <a asp-action="Details" asp-route-id="@item.ClinicId" style="text-align:center;font-weight:bold">Doctors</a>
+                </div>
+        </div>
+            </div>
+        
+    }
+   
+
+   
+</div>
+
+@*<h1 style="text-align:center">Our Department</h1>
+<div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between">
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+
+    }
+</div>*@
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicImg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicDis)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicImg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicDis)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClinicId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ClinicId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClinicId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
